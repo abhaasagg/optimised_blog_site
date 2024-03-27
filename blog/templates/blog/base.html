@@ -12,6 +12,35 @@
 
     <link rel="stylesheet" type="text/css" href="{% static 'blog/main.css' %}">
 
+    <script>
+      function genfun() {
+        var divElement = document.createElement("div");
+        divElement.innerHTML = '<div class="container"><form id="chatForm"><h3>User Input:</h3><input type="text" id="userInput" name="userInput"><br><br><button type="button" onclick="submitInput()">Submit</button><br><br><textarea id="output" name="output" rows="4" cols="50"></textarea><br><br><button type="button" onclick="insertOutput()">Insert Output</button></form>';
+        document.body.appendChild(divElement);
+          
+        function submitInput() {
+              var userInput = document.getElementById("userInput").value;
+              // Call AI model with userInput and get generated text
+              var generatedText = callAiModel(userInput);
+      
+              // Output generated text
+              document.getElementById("output").value = generatedText;
+          }
+      
+          function insertOutput() {
+              var generatedText = document.getElementById("output").value;
+              document.getElementById("id_content").value = generatedText;
+          }
+
+
+      function callAiModel(userInput) {
+          return "Generated text based on input: " + userInput;
+      }
+  }
+
+
+  </script>
+
     {% if title %}
         <title>Django Blog - {{ title }}</title>
     {% else %}
