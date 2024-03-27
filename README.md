@@ -1,0 +1,1 @@
+A blog site with complete backend made using django which is connected to a generative AI model to help user generate blog using a prompt or improve user's own post.
